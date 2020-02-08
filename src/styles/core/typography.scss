@@ -1,10 +1,30 @@
+@font-face {
+  font-family: "helvetica-neue";
+  src: url("../assets/fonts/helvetica-neue/helvetica-neue-bold.woff2")
+      format("woff2"),
+    url("../assets/fonts/helvetica-neue/helvetica-neue-bold.woff")
+      format("woff");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "helvetica-neue";
+  src: url("../assets/fonts/helvetica-neue/helvetica-neue-light.woff2")
+      format("woff2"),
+    url("../assets/fonts/helvetica-neue/helvetica-neue-light.woff")
+      format("woff");
+  font-style: normal;
+  font-weight: 300;
+}
+
 html {
   font-size: 62.5%;
 }
 
 body {
-  font-family: $font-body;
-  font-weight: $font-body-weight;
+  font-family: "helvetica-neue";
+  font-weight: 300;
   font-style: $font-body-style;
   font-size: 1.6rem;
 }
@@ -15,7 +35,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-heading;
+  font-family: "helvetica-neue";
+  font-weight: 700;
 }
 
 body,

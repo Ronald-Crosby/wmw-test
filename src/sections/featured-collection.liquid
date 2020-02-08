@@ -17,8 +17,8 @@
     <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true, "setGallerySize": false }'>
       {% for product in collection.products limit: 6 %}
         {% assign current_variant = product.selected_or_first_available_variant %}
-        {% comment %} {% assign cells = collection.products.size %}
-        {% if cells < 4 | assign cellClass = 'show-2' else | assign cellClass = 'show-4' %} {% endcomment %}
+        {% assign cells = collection.products.size %}
+        {% if cells < 4 | assign cellClass = 'show-2' else | assign cellClass = 'show-4' %}
 
         <article class="carousel-cell show-4">
           <a href="{{ product.url | within: collection }}" class="carousel-cell__anchor">
