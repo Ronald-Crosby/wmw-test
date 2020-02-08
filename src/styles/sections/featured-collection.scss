@@ -4,6 +4,56 @@
  * Base styling for the featured collection product grid.
  *
  */
-.featured-collection {
-  
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.main-carousel {
+  margin: 0 -10px;
+}
+
+.flickity-viewport {
+  height: 90vh;
+}
+
+.carousel-cell {
+  padding: 0 10px;
+  height: 100%;
+}
+
+.carousel-cell {
+  &.show-4 {
+    width: 25%;
+  }
+  &.show-2 {
+    width: 50%;
+  }
+}
+
+.add-cart {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 10%;
+  display: flex;
+  align-items: flex-end;
+
+  &__inner {
+    width: 100%;
+    background: white;
+    text-align: center;
+    padding: 0.75em 0;
+    opacity: 0;
+  }
+}
+
+.carousel-cell:hover .add-cart__inner {
+  opacity: 1;
 }

@@ -7,33 +7,41 @@
 {% endcomment %}
 
 <section class="featured-collection" data-section-id="{{ section.id }}" data-section-type="featured-collection">
-  {%- assign collection = collections[section.settings.collection] -%}
+  <div class="container">
+    {%- assign collection = collections[section.settings.collection] -%}
 
-  <h2>{{ collection.title | escape }}</h2>
+    <h2>{{ collection.title | escape }}</h2>
 
-  <p>{{ collection.description }}</p>
+    <p>{{ collection.description }}</p>
 
-  {% for product in collection.products limit: 6 %}
-    {% assign current_variant = product.selected_or_first_available_variant %}
-  
-    <a href="{{ product.url | within: collection }}">
-      <div>
-        {% if product.featured_image != blank %}
-          {{ product.featured_image | img_url: 'large' | img_tag }}
-        {% endif %}
-        
-        <span js-ajax-cart="addToCart" data-variant-id="{{ current_variant.id }}" data-quantity="1">Add to cart</span>
-      </div>
+    <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true, "setGallerySize": false }'>
+      {% for product in collection.products limit: 6 %}
+        {% assign current_variant = product.selected_or_first_available_variant %}
+        {% comment %} {% assign cells = collection.products.size %}
+        {% if cells < 4 | assign cellClass = 'show-2' else | assign cellClass = 'show-4' %} {% endcomment %}
 
-      <div>
-        <p>{{ product.title | escape }}</p>
+        <article class="carousel-cell show-4">
+          <a href="{{ product.url | within: collection }}" class="carousel-cell__anchor">
+            <figure class="responsive-image__wrapper">
+              {% if product.featured_image != blank %}
+                {{ product.featured_image | img_url: 'large' | img_tag }}
+              {% endif %}
+              <div class="add-cart">
+                <span js-ajax-cart="addToCart" class="add-cart__inner" data-variant-id="{{ current_variant.id }}" data-quantity="1">Add to cart</span>
+              </div>
+            </figure>
 
-        <span>
-          {% include 'product-price' %}
-        </span>
-      </div>
-    </a>
-  {% endfor %}
+            <div class="">
+              <p>{{ product.title | escape }}</p>
+              <span>
+                {% include 'product-price' %}
+              </span>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
 {% schema %}

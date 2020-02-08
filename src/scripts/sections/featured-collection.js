@@ -6,7 +6,8 @@
  *
  * @namespace featuredCollection
  */
-import {register} from '@shopify/theme-sections';
+import { register } from "@shopify/theme-sections";
+import "../lib/flickity.pkgd.min.js";
 
 /**
  * Featured collection constructor
@@ -14,10 +15,9 @@ import {register} from '@shopify/theme-sections';
  *
  * @param {string} container - selector for the section container DOM element
  */
-register('featured-collection', {
-
+register("featured-collection", {
   init() {
-    window.console.log('Initialising featured collection section');
+    window.console.log("Initialising featured collection section");
   },
 
   publicMethod() {
@@ -57,5 +57,5 @@ register('featured-collection', {
   // Shortcut function called when a section block is deselected by the Theme Editor 'shopify:block:deselect' event.
   onBlockDeselect() {
     // Do something when a section block is deselected
-  },
+  }
 });

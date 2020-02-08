@@ -1,6 +1,6 @@
-import {load} from '@shopify/theme-sections';
-import '../sections/featured-collection';
+import { load } from "@shopify/theme-sections";
+import "../sections/featured-collection";
 
-document.addEventListener('DOMContentLoaded', () => {
-  load('*');
+document.addEventListener("DOMContentLoaded", () => {
+  load("*");
 });
