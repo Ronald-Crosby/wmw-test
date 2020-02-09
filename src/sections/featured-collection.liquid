@@ -15,21 +15,23 @@
       <p>{{ collection.description }}</p>
     </div>
 
-    <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true, "setGallerySize": false }'>
+    <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true, "wrapAround": true }'>
       {% for product in collection.products limit: 6 %}
         {% assign current_variant = product.selected_or_first_available_variant %}
         {% assign cells = collection.products.size %}
 
         <article class="carousel-cell show-4">
           <a href="{{ product.url | within: collection }}" class="carousel-cell__anchor">
-            <figure class="responsive-image__wrapper featured-collection-slide-image">
-              {% if product.featured_image != blank %}
-                {{ product.featured_image | img_url: 'large' | img_tag }}
-              {% endif %}
-              <div class="add-cart button">
-                <span js-ajax-cart="addToCart" class="add-cart__inner" data-variant-id="{{ current_variant.id }}" data-quantity="1">Add to cart</span>
-              </div>
-            </figure>
+            <div class="responsive-image">
+              <figure class="responsive-image__wrapper featured-collection-slide-image">
+                {% if product.featured_image != blank %}
+                  {{ product.featured_image | img_url: 'large' | img_tag: 'jeans', 'responsive-image__image' }}
+                {% endif %}
+                <div class="add-cart button">
+                  <span js-ajax-cart="addToCart" class="add-cart__inner" data-variant-id="{{ current_variant.id }}" data-quantity="1">Add to cart</span>
+                </div>
+              </figure>
+            </div>
 
             <div class="product-info">
               <p class="product-info__title">{{ product.title | escape }}</p>

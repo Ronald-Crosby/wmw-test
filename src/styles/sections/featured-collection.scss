@@ -12,11 +12,12 @@
   &__header {
     max-width: 500px;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 3em auto;
   }
 }
 
 .container {
+  width: 90vw;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -27,11 +28,11 @@ h2 {
 }
 
 .main-carousel {
-  margin: 0 -10px;
+  margin: 0 -10px 3rem -10px;
 }
 
 .flickity-viewport {
-  height: 90vh;
+  height: 50vw;
 }
 
 .carousel-cell {
@@ -42,6 +43,8 @@ h2 {
   &__anchor {
     color: $colour-body-text;
     text-decoration: none;
+    display: block;
+    height: 100%;
   }
 }
 
@@ -74,6 +77,7 @@ h2 {
   &__title {
     font-weight: $font-body-bold-weight;
     color: $colour-brand--blue;
+    font-size: 2.1rem;
   }
 }
 
@@ -83,6 +87,18 @@ h2 {
 
 .carousel-cell:hover .add-cart__inner {
   opacity: 1;
+}
+
+.flickity-page-dots {
+  bottom: 0;
+}
+
+.flickity-button.next {
+  right: -5%;
+}
+
+.flickity-button.previous {
+  left: -5%;
 }
 
 @include media-query($medium-up) {
