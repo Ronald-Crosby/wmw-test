@@ -15,6 +15,7 @@ $placeholder-color-foreground: #161d25;
 $placeholder-color-background: #f9fafb;
 $colour-brand--blue: #003366;
 $colour-brand--grey: #bbbbbb;
+$colour-body-text: #9b9b9b;
 
 /**
  * Others.
@@ -35,8 +36,8 @@ $color-success-bg: #000000;
 /**
  * Typography.
  */
-$font-heading: "helvetica-neue";
-$font-body: "helvetica-neue";
+$font-heading: var(--font-heading);
+$font-body: var(--font-body);
 $font-body-weight: 300;
 $font-body-style: normal;
 $font-body-bold-weight: 700;

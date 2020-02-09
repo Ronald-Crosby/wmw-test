@@ -10,30 +10,30 @@
   <div class="container">
     {%- assign collection = collections[section.settings.collection] -%}
 
-    <h2>{{ collection.title | escape }}</h2>
-
-    <p>{{ collection.description }}</p>
+    <div class="featured-collection__header">
+      <h2>{{ collection.title | escape }}</h2>
+      <p>{{ collection.description }}</p>
+    </div>
 
     <div class="main-carousel" data-flickity='{ "cellAlign": "left", "contain": true, "setGallerySize": false }'>
       {% for product in collection.products limit: 6 %}
         {% assign current_variant = product.selected_or_first_available_variant %}
         {% assign cells = collection.products.size %}
-        {% if cells < 4 | assign cellClass = 'show-2' else | assign cellClass = 'show-4' %}
 
         <article class="carousel-cell show-4">
           <a href="{{ product.url | within: collection }}" class="carousel-cell__anchor">
-            <figure class="responsive-image__wrapper">
+            <figure class="responsive-image__wrapper featured-collection-slide-image">
               {% if product.featured_image != blank %}
                 {{ product.featured_image | img_url: 'large' | img_tag }}
               {% endif %}
-              <div class="add-cart">
+              <div class="add-cart button">
                 <span js-ajax-cart="addToCart" class="add-cart__inner" data-variant-id="{{ current_variant.id }}" data-quantity="1">Add to cart</span>
               </div>
             </figure>
 
-            <div class="">
-              <p>{{ product.title | escape }}</p>
-              <span>
+            <div class="product-info">
+              <p class="product-info__title">{{ product.title | escape }}</p>
+              <span class="product-info__price">
                 {% include 'product-price' %}
               </span>
             </div>
