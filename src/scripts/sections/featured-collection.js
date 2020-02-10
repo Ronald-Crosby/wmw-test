@@ -7,7 +7,7 @@
  * @namespace featuredCollection
  */
 import { register } from "@shopify/theme-sections";
-import "../lib/flickity.pkgd.min.js";
+import Flickity from "flickity";
 
 /**
  * Featured collection constructor
@@ -32,6 +32,11 @@ register("featured-collection", {
   onLoad() {
     // Do something when a section instance is loaded
     this.init();
+    var flkty = new Flickity(".main-carousel", {
+      cellAlign: "left",
+      contain: true,
+      wrapAround: true
+    });
   },
 
   // Shortcut function called when a section unloaded by the Theme Editor 'shopify:section:unload' event.
