@@ -35,7 +35,16 @@ register("featured-collection", {
     var flkty = new Flickity(".main-carousel", {
       cellAlign: "left",
       contain: true,
-      wrapAround: true
+      wrapAround: true,
+      dragThreshold: 10,
+      arrowShape: {
+        x0: 10,
+        x1: 60,
+        y1: 50,
+        x2: 60,
+        y2: 45,
+        x3: 15
+      }
     });
   },
 

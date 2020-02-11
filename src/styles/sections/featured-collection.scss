@@ -8,16 +8,25 @@
 // I would ideally set this on the body, but have set it on the section for the purposes of this exercise.
 .featured-collection {
   color: $colour-body-text;
+  margin-bottom: 4rem;
 
   &__header {
     max-width: 500px;
     text-align: center;
     margin: 0 auto 3em auto;
   }
+
+  &__footer {
+    display: flex;
+
+    .button {
+      margin: 0 auto;
+    }
+  }
 }
 
 .container {
-  width: 90vw;
+  width: 100vw;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
@@ -28,7 +37,7 @@ h2 {
 }
 
 .main-carousel {
-  margin: 0 -10px 3rem -10px;
+  margin: 0 -10px 9rem -10px;
 }
 
 .carousel-cell {
@@ -67,6 +76,11 @@ h2 {
     opacity: 0;
     color: $colour-brand--blue;
     font-weight: $font-body-bold-weight;
+    transition: opacity 0.1s ease, color 0.1s ease;
+
+    &:hover {
+      color: rgba(0, 51, 102, 0.8);
+    }
   }
 }
 
@@ -80,7 +94,7 @@ h2 {
 
 .button {
   text-align: center;
-  padding: 0.75em 0;
+  padding: 1.15em;
 
   &--light {
     color: $colour-brand--blue;
@@ -97,6 +111,32 @@ h2 {
   opacity: 1;
 }
 
+.flickity-button {
+  background: transparent;
+
+  &:hover {
+    .flickity-button-icon {
+      fill: $colour-brand--blue;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 80vh;
+    top: 0;
+    left: 0;
+    background: none;
+    transform: translate(-15%, -45%);
+  }
+}
+
+.flickity-button-icon {
+  fill: $colour-brand--grey;
+  transition: fill 0.1s ease;
+}
+
 .flickity-button.next {
   right: -5%;
 }
@@ -105,8 +145,27 @@ h2 {
   left: -5%;
 }
 
+.flickity-page-dots {
+  bottom: -50px;
+}
+
 @include media-query($medium-up) {
   .carousel-cell {
+    width: 33.333333%;
+  }
+  .container {
+    width: 90vw;
+  }
+}
+
+@include media-query($large-up) {
+  .carousel-cell {
     width: 25%;
+  }
+}
+
+@include media-query($medium-down) {
+  .flickity-button {
+    display: none;
   }
 }
