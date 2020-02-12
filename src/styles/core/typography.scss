@@ -56,6 +56,12 @@ select {
   font-weight: $font-body-bold-weight;
 }
 
+.badge {
+  font-size: 1.35rem;
+  font-weight: $font-body-bold-weight;
+  line-height: 0;
+}
+
 a:focus {
   color: inherit;
 }

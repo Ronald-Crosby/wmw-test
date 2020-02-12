@@ -29,6 +29,13 @@
                 <div class="add-cart">
                   <span js-ajax-cart="addToCart" class="add-cart__inner" data-variant-id="{{ current_variant.id }}" data-quantity="1">Add to cart</span>
                 </div>
+                {% for tag in product.tags %}
+                  {% if tag contains 'sale' %}
+                    <div class="sale-badge badge">
+                      <p>Sale</p>
+                    </div>
+                  {% endif %}
+                {% endfor %}
               </figure>
             </div>
 
