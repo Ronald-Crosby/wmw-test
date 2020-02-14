@@ -37,7 +37,7 @@ h2 {
 }
 
 .main-carousel {
-  margin: 0 -10px 9rem -10px;
+  margin: 0 -10px 6.5rem -10px;
 }
 
 .carousel-cell {
@@ -57,7 +57,7 @@ h2 {
 }
 
 .featured-collection-slide-image {
-  padding-bottom: 156.862745098%;
+  padding-bottom: 146.862745098%;
 
   img {
     transition: transform 0.5s ease;
@@ -72,7 +72,7 @@ h2 {
   left: 0;
   bottom: 0;
   right: 0;
-  padding: 10%;
+  padding: 6%;
   display: flex;
   align-items: flex-end;
   transition: background-color 0.1s ease;
@@ -81,7 +81,7 @@ h2 {
     width: 100%;
     background: white;
     text-align: center;
-    padding: 0.75em 0;
+    padding: 0.65em 0;
     color: $colour-brand--blue;
     font-weight: $font-body-bold-weight;
     transition: opacity 0.1s ease, color 0.1s ease;
@@ -96,13 +96,14 @@ h2 {
   &__title {
     font-weight: $font-body-bold-weight;
     color: $colour-brand--blue;
-    font-size: 2.1rem;
+    line-height: 1.3;
+    margin-bottom: 0.3em;
   }
 }
 
 .button {
   text-align: center;
-  padding: 1.15em;
+  padding: 0.75em;
 
   &--light {
     color: $colour-brand--blue;
@@ -149,6 +150,10 @@ h2 {
   }
 }
 
+.flickity-prev-next-button {
+  transform: none;
+}
+
 .flickity-button-icon {
   fill: $colour-brand--grey;
   transition: fill 0.1s ease;
@@ -163,15 +168,38 @@ h2 {
 }
 
 .flickity-page-dots {
-  bottom: -50px;
+  bottom: -30px;
+
+  & .dot {
+    width: 7px;
+    height: 7px;
+    margin: 0 6px;
+  }
 }
 
 @include media-query($medium-up) {
+  .main-carousel {
+    margin: 0 -10px 9rem -10px;
+  }
+
   .carousel-cell {
     width: 33.333333%;
   }
+
   .container {
     width: 90vw;
+  }
+
+  .button {
+    padding: 1.15em;
+  }
+
+  .featured-collection-slide-image {
+    padding-bottom: 156.862745098%;
+  }
+
+  .flickity-page-dots {
+    bottom: -50px;
   }
 }
 

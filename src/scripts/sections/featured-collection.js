@@ -41,11 +41,31 @@ register("featured-collection", {
         x0: 10,
         x1: 60,
         y1: 50,
-        x2: 60,
+        x2: 65,
         y2: 45,
-        x3: 15
+        x3: 20
       }
     });
+
+    function setArrowPosition() {
+      console.log("hello");
+      const $cardImage = document.querySelector(
+        ".main-carousel .responsive-image__wrapper"
+      );
+      const $imageHeight = parseInt($cardImage.getBoundingClientRect().height);
+      const $topPosition = $imageHeight / 2;
+
+      const arrows = document.querySelectorAll(
+        ".main-carousel .flickity-prev-next-button"
+      );
+
+      arrows.forEach(arrow => {
+        console.log($topPosition);
+        arrow.style.top = `${$topPosition}px`;
+      });
+    }
+
+    setArrowPosition();
   },
 
   // Shortcut function called when a section unloaded by the Theme Editor 'shopify:section:unload' event.

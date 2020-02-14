@@ -27,6 +27,7 @@ body {
   font-weight: 300;
   font-style: $font-body-style;
   font-size: 1.6rem;
+  line-height: $body-line-height;
 }
 
 h1,
@@ -62,6 +63,36 @@ select {
   line-height: 0;
 }
 
+.add-cart__inner {
+  font-size: 1.8rem;
+}
+
+.product-info__title {
+  font-size: 2.1rem;
+}
+
 a:focus {
   color: inherit;
+}
+
+@include media-query($medium-down) {
+  body {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+  }
+
+  .add-cart__inner {
+    font-size: 1.4rem;
+  }
+
+  .badge {
+    font-size: 1.2rem;
+  }
+
+  .product-info__title {
+    font-size: 1.8rem;
+  }
 }
