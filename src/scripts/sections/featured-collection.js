@@ -48,9 +48,8 @@ register("featured-collection", {
     });
 
     function setArrowPosition() {
-      console.log("hello");
       const $cardImage = document.querySelector(
-        ".main-carousel .responsive-image__wrapper"
+        ".main-carousel .responsive-image"
       );
       const $imageHeight = parseInt($cardImage.getBoundingClientRect().height);
       const $topPosition = $imageHeight / 2;
@@ -60,12 +59,15 @@ register("featured-collection", {
       );
 
       arrows.forEach(arrow => {
-        console.log($topPosition);
-        arrow.style.top = `${$topPosition}px`;
+        const arrowHeight = arrow.getBoundingClientRect().height / 2;
+        arrow.style.top = `${$topPosition - arrowHeight}px`;
       });
     }
 
     setArrowPosition();
+    window.addEventListener("resize", () => {
+      setArrowPosition();
+    });
   },
 
   // Shortcut function called when a section unloaded by the Theme Editor 'shopify:section:unload' event.
